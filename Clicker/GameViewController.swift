@@ -30,10 +30,7 @@ class GameViewController: UIViewController {
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.randomShowButton), userInfo: nil, repeats: true)
         
     }
-    
-    @IBAction func goNext(_ sender: Any) {
-        
-    }
+  
     @IBAction func buttonPressed(_ sender: Any) {
         click = click + 1
         scoreLabel.text = String(click)
@@ -43,10 +40,9 @@ class GameViewController: UIViewController {
     @objc func randomShowButton(){
         self.resetAllButton()
         let random = Int(arc4random_uniform(3))
-        print("random \(random)")
-        print("counter \(counter)")
         buttons[random].isHidden = false
         counter = counter - 1
+        
         if counter == 0 { gameOver() }
     }
     
